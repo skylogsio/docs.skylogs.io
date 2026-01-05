@@ -4,15 +4,15 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from "prism-react-renderer";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Skylogs',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: "Skylogs",
+  tagline: "Dinosaurs are cool",
+  favicon: "img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -20,55 +20,53 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://skylogs.io/',
+  url: "https://skylogs.io/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'skylogs.io', // Usually your GitHub org/user name.
-  projectName: 'skylogs', // Usually your repo name.
+  organizationName: "skylogs.io", // Usually your GitHub org/user name.
+  projectName: "skylogs", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: "throw",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
+          sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/skylogsio/skylogs',
+          editUrl: "https://github.com/skylogsio/skylogs",
         },
         blog: {
           showReadingTime: true,
           feedOptions: {
-            type: ['rss', 'atom'],
+            type: ["rss", "atom"],
             xslt: true,
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/skylogsio/skylogs',
+          editUrl: "https://github.com/skylogsio/skylogs",
           // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          onInlineTags: "warn",
+          onInlineAuthors: "warn",
+          onUntruncatedBlogPosts: "warn",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       }),
     ],
@@ -78,45 +76,45 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: "img/docusaurus-social-card.jpg",
       colorMode: {
         respectPrefersColorScheme: true,
       },
       navbar: {
         // title: 'Skylogs',
         logo: {
-          alt: 'skylogs.io logo',
-          src: 'img/logo.svg',
+          alt: "skylogs.io logo",
+          src: "img/logo.svg",
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Docs',
+            type: "docSidebar",
+            sidebarId: "tutorialSidebar",
+            position: "left",
+            label: "Docs",
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/skylogsio/skylogs',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/skylogsio/skylogs",
+            label: "GitHub",
+            position: "right",
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Learn',
+            title: "Learn",
             items: [
               {
-                label: 'Intro',
-                to: '/docs/introduction',
+                label: "Intro",
+                to: "/docs/introduction",
               },
             ],
           },
           {
-            title: 'Community',
+            title: "Community",
             // items: [
             //   {
             //     label: 'Stack Overflow',
@@ -133,15 +131,15 @@ const config = {
             // ],
           },
           {
-            title: 'More',
+            title: "More",
             items: [
               // {
               //   label: 'Blog',
               //   to: '/blog',
               // },
               {
-                label: 'GitHub',
-                href: 'https://github.com/skylogsio/skylogs',
+                label: "GitHub",
+                href: "https://github.com/skylogsio/skylogs",
               },
             ],
           },
@@ -151,6 +149,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ["bash", "typescript", "yaml"],
       },
     }),
 };
