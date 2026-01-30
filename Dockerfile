@@ -1,35 +1,32 @@
-# Use Node.js LTS version as base image
-FROM node:18-alpine AS builder
+# Build stage
+FROM node:lts-alpine AS build
 
 # Set working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copy package.json and lock files
-COPY package.json package-lock.json ./
+# Copy package files
+COPY package.json package-lock.json* ./
 
 # Install dependencies
-RUN npm install --force
+RUN npm ci --only=production=false || npm install
 
-# Copy the rest of the application files
+# Copy project files
 COPY . .
 
-# Build the Next.js application
+# Build the project
 RUN npm run build
 
-# Use a minimal Node.js runtime for production
-FROM node:18-alpine AS runner
+# Production stage
+FROM nginx:alpine
 
-# Set working directory
-WORKDIR /usr/src/app
+# Copy custom nginx config (optional)
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy only the necessary files from the builder
-COPY --from=builder /usr/src/app/package.json ./
-COPY --from=builder /usr/src/app/node_modules ./node_modules
-COPY --from=builder /usr/src/app/.next ./.next
-COPY --from=builder /usr/src/app/public ./public
+# Copy built files from build stage
+COPY --from=build /app/build /usr/share/nginx/html
 
-# Expose port
-EXPOSE 3000
+# Expose port 80
+EXPOSE 80
 
-# Command to run the application
-CMD ["npm", "run", "start"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
