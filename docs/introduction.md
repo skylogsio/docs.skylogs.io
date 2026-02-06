@@ -7,11 +7,12 @@ slug: /introduction
 
 # Skylogs
 
-**Skylogs** is an open-source alert and incident management platform that helps teams detect issues faster, respond more effectively, and stay in control during incidents.
+**Skylogs** is an opensource alert and incident management platform  that helps teams detect issues faster, respond more effectively, and stay in control during incidents.
 
 It sits between your **observability tools** and your **on-call teams**, turning raw alerts into clear, actionable incidents — and making sure the right people are notified at the right time.
-
 If you already use monitoring tools but struggle with alert noise, missed notifications, or unclear incident ownership, **Skylogs** is built to solve exactly that.
+
+SkyLogs is designed with a distributed and highly available architecture to provide a reliable, centralized, production-grade incident management platform.
 
 ---
 

@@ -1,4 +1,4 @@
-# 🚨 Alert Management Overview
+# Alert Management Overview
 
 SkyLogs provides a centralized **alert management system** that collects, processes, and routes alerts from multiple monitoring systems.  
 This ensures that teams are notified promptly, can analyze incidents efficiently, and maintain visibility over their infrastructure.
