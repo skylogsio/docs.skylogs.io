@@ -42,7 +42,7 @@ const config = {
 
   presets: [
     [
-      "classic",
+      "@docusaurus/preset-classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
@@ -52,6 +52,13 @@ const config = {
           routeBasePath: "/",
 
           editUrl: "https://github.com/skylogsio/skylogs",
+        },
+        sitemap: {
+          lastmod: "date",
+          changefreq: "weekly",
+          priority: 0.5,
+          ignorePatterns: ["/tags/**"],
+          filename: "sitemap.xml",
         },
         blog: false,
         // blog: {
@@ -75,9 +82,32 @@ const config = {
     ],
   ],
 
+  themes: ["docusaurus-theme-search-typesense"],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      typesense: {
+        // Replace this with the name of your index/collection.
+        // It should match the "index_name" entry in the scraper's "config.json" file.
+        typesenseCollectionName: "docusaurus-2",
+
+        typesenseServerConfig: {
+          nodes: [
+            {
+              host: "localhost",
+              port: 8108,
+              protocol: "http",
+            },
+          ],
+          apiKey: "xyz",
+        },
+
+        // Optional: Typesense search parameters: https://typesense.org/docs/0.24.0/api/search.html#search-parameters
+        // typesenseSearchParameters: {},
+
+        // Optional
+        // contextualSearch: true,
+      },
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       colorMode: {
