@@ -94,7 +94,7 @@ const config = {
         typesenseServerConfig: {
           nodes: [
             {
-              host: "localhost",
+              host: "typesense",
               port: 8108,
               protocol: "http",
             },
