@@ -32,7 +32,7 @@ To create a new alert in SkyLogs:
 
 Once submitted, the alert will appear in the alert list with all its configuration.
 
-{/* TODO: add screenshot ../images/skylogs-create-alert.png */}
+![create alert](../../images/skylogs-create-alert.png)
 
 ---
 
@@ -54,7 +54,7 @@ You can:
 The Alert View Page is designed to give you full control and visibility over the alert.
 
 
-{/* TODO: add screenshot ../images/skylogs-alert-view.png */}
+![alert view](../../images/skylogs-alert-view.png)
 ---
 
 ## Filtering and Group Actions
@@ -89,11 +89,11 @@ After filtering, you can apply bulk actions to multiple alerts at once:
 These tools significantly streamline mass alert management, especially in large-scale deployments.
 
 
-{/* TODO: add screenshot ../images/skylogs-alert-filtering.png */}
+![alert filtering](../../images/skylogs-alert-filtering.png)
 
 
 
-{/* TODO: add screenshot ../images/groupAction.png */}
+![groupAction](../../images/groupAction.png)
 ---
 
 ## Pinning Alerts

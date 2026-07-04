@@ -1,8 +1,8 @@
 ---
 id: multi-zone-ha
 title: Multi-zone & HA
-sidebar_position: 1
-slug: /deployment
+sidebar_position: 3
+slug: /deployment/multi-zone-ha
 ---
 
 # Deployment — Multi-zone & HA

@@ -1,1 +1,10 @@
-{ "label": "Deployment", "position": 4 }
+{
+  "label": "Deployment",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "slug": "/deployment",
+    "title": "Deployment",
+    "description": "Running Skylogs in production: deployment environments (Docker Compose, Kubernetes), high availability, multi-zone federation, sizing, and upgrades."
+  }
+}

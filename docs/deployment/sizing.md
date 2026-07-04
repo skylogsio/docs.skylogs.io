@@ -1,7 +1,7 @@
 ---
 id: sizing
 title: Sizing & performance
-sidebar_position: 3
+sidebar_position: 4
 slug: /deployment/sizing
 draft: true
 ---

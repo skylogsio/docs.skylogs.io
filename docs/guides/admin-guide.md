@@ -7,7 +7,7 @@ slug: /admin-guide
 
 # Admin guide
 
-This guide is for Skylogs administrators: users and RBAC, teams, notification channels, routing, status pages, and operational maintenance. For installation see [Installation](/installation); for HA and multi-zone topology see [Deployment](/deployment).
+This guide is for Skylogs administrators: users and RBAC, teams, notification channels, routing, status pages, and operational maintenance. For installation see [Installation](/quick-start); for HA and multi-zone topology see [Deployment](/deployment).
 
 ## First steps after installation
 

@@ -1,7 +1,7 @@
 ---
 id: demo-environment
 title: Demo environment
-sidebar_position: 5
+sidebar_position: 7
 slug: /demo
 draft: true
 ---

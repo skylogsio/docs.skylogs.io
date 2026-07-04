@@ -1,7 +1,7 @@
 ---
 id: first-integration
 title: First real integration
-sidebar_position: 3
+sidebar_position: 5
 slug: /first-integration
 draft: true
 ---

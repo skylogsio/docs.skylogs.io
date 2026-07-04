@@ -1,7 +1,7 @@
 ---
 id: migrating
 title: Migrating from Opsgenie / PagerDuty
-sidebar_position: 4
+sidebar_position: 6
 slug: /migrating
 draft: true
 ---

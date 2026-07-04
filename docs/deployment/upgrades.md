@@ -1,7 +1,7 @@
 ---
 id: upgrades
 title: Upgrade guide
-sidebar_position: 4
+sidebar_position: 5
 slug: /deployment/upgrades
 draft: true
 ---
