@@ -42,15 +42,13 @@ All endpoints require `Authorization: Bearer <accessToken>` — see [Authenticat
 
 The body is selected by the `provider` discriminator:
 
-<details><summary><b>Kave Negar Call Config</b></summary>
+#### Kave Negar Call Config
 
 | Field | Type | Required | Description |
 |---|---|---|---|
 | `name` | string | ✅ | Example: `Primary Call` |
 | `provider` | string (kaveNegar) | ✅ | Example: `kaveNegar` |
 | `apiToken` | string | ✅ | Example: `your-api-token-here` |
-
-</details>
 
 **Responses:** `201` Created · `422` Validation error
 
@@ -80,15 +78,13 @@ The body is selected by the `provider` discriminator:
 
 The body is selected by the `provider` discriminator:
 
-<details><summary><b>Kave Negar Call Config</b></summary>
+#### Kave Negar Call Config
 
 | Field | Type | Required | Description |
 |---|---|---|---|
 | `name` | string | ✅ | Example: `Primary Call` |
 | `provider` | string (kaveNegar) | ✅ | Example: `kaveNegar` |
 | `apiToken` | string | ✅ | Example: `your-api-token-here` |
-
-</details>
 
 **Responses:** `200` OK · `404` Not Found
 
@@ -274,7 +270,7 @@ The body is selected by the `provider` discriminator:
 
 The body is selected by the `provider` discriminator:
 
-<details><summary><b>Kave Negar SMS Config</b></summary>
+#### Kave Negar SMS Config
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -282,8 +278,6 @@ The body is selected by the `provider` discriminator:
 | `provider` | string (kaveNegar) | ✅ | Example: `kaveNegar` |
 | `apiToken` | string | ✅ | Example: `your-api-token-here` |
 | `senderNumber` | string | ✅ | Example: `10008000800` |
-
-</details>
 
 **Responses:** `201` Created · `422` Validation error
 
@@ -313,7 +307,7 @@ The body is selected by the `provider` discriminator:
 
 The body is selected by the `provider` discriminator:
 
-<details><summary><b>Kave Negar SMS Config</b></summary>
+#### Kave Negar SMS Config
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -321,8 +315,6 @@ The body is selected by the `provider` discriminator:
 | `provider` | string (kaveNegar) | ✅ | Example: `kaveNegar` |
 | `apiToken` | string | ✅ | Example: `your-api-token-here` |
 | `senderNumber` | string | ✅ | Example: `10008000800` |
-
-</details>
 
 **Responses:** `200` OK · `404` Not Found
 

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
-title: Quick Start 
+title: Quick Start
+slug: /quick-start
 description: Installing Skylogs using Docker and Docker Compose.
 ---
 

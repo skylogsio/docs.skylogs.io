@@ -89,7 +89,9 @@ Creates an alert rule. All types use this endpoint; set `type` to select the req
 
 The body is selected by the `type` discriminator:
 
-<details><summary><b>API alert rule</b> — Inbound webhook alert (fire, resolve, status). Server generates `apiToken` after create.</summary>
+#### API alert rule
+
+*Inbound webhook alert (fire, resolve, status). Server generates `apiToken` after create.*
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -104,9 +106,9 @@ The body is selected by the `type` discriminator:
 | `enableAutoResolve` | boolean |  | Automatically resolve firing instances after a period Example: `true` |
 | `autoResolveMinutes` | integer |  | Minutes until auto-resolve when enableAutoResolve is true Example: `5` |
 
-</details>
+#### Notification alert rule
 
-<details><summary><b>Notification alert rule</b> — Receives generic notification webhooks. Server generates `apiToken` after create.</summary>
+*Receives generic notification webhooks. Server generates `apiToken` after create.*
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -119,11 +121,11 @@ The body is selected by the `type` discriminator:
 | `endpointIds` | array of string |  | Notification endpoints to attach |
 | `type` | string (notification) |  |  |
 
-</details>
+#### AlertRuleStorePrometheus
 
-<details><summary><b>AlertRuleStorePrometheus</b> — Prometheus alert rule — choose dynamic or textQuery variant.</summary>
+*Prometheus alert rule — choose dynamic or textQuery variant.*
 
-*Variant `queryType`: **Prometheus (dynamic)***
+**Variant `queryType`: Prometheus (dynamic)**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -140,7 +142,7 @@ The body is selected by the `type` discriminator:
 | `dataSourceAlertName` | string |  | Alert name in the external Prometheus/Grafana ruler Example: `HighMemory` |
 | `extraField` | array of object |  | Label key/value filters |
 
-*Variant `queryType`: **Prometheus (text query)***
+**Variant `queryType`: Prometheus (text query)**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -157,11 +159,11 @@ The body is selected by the `type` discriminator:
 | `queryObject` | object |  | Structured query payload used by the checker |
 
 
-</details>
+#### AlertRuleStoreGrafana
 
-<details><summary><b>AlertRuleStoreGrafana</b> — Grafana alert rule — choose dynamic or textQuery variant.</summary>
+*Grafana alert rule — choose dynamic or textQuery variant.*
 
-*Variant `queryType`: **Grafana (dynamic)***
+**Variant `queryType`: Grafana (dynamic)**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -178,7 +180,7 @@ The body is selected by the `type` discriminator:
 | `dataSourceAlertName` | string |  |  |
 | `extraField` | array of object |  |  |
 
-*Variant `queryType`: **Grafana (text query)***
+**Variant `queryType`: Grafana (text query)**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -195,11 +197,11 @@ The body is selected by the `type` discriminator:
 | `queryObject` | object |  |  |
 
 
-</details>
+#### AlertRuleStorePmm
 
-<details><summary><b>AlertRuleStorePmm</b> — Percona PMM alert rule — choose dynamic or textQuery variant.</summary>
+*Percona PMM alert rule — choose dynamic or textQuery variant.*
 
-*Variant `queryType`: **PMM (dynamic)***
+**Variant `queryType`: PMM (dynamic)**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -216,7 +218,7 @@ The body is selected by the `type` discriminator:
 | `dataSourceAlertName` | string |  |  |
 | `extraField` | array of object |  |  |
 
-*Variant `queryType`: **PMM (text query)***
+**Variant `queryType`: PMM (text query)**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -233,9 +235,9 @@ The body is selected by the `type` discriminator:
 | `queryObject` | object |  |  |
 
 
-</details>
+#### Sentry alert rule
 
-<details><summary><b>Sentry alert rule</b> — Webhook-driven Sentry issue alerts.</summary>
+*Webhook-driven Sentry issue alerts.*
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -250,9 +252,7 @@ The body is selected by the `type` discriminator:
 | `dataSourceIds` | array of string |  |  |
 | `dataSourceAlertName` | string |  | Sentry project or alert identifier configured in Skylogs |
 
-</details>
-
-<details><summary><b>Splunk alert rule</b></summary>
+#### Splunk alert rule
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -267,9 +267,7 @@ The body is selected by the `type` discriminator:
 | `dataSourceIds` | array of string |  |  |
 | `dataSourceAlertName` | string |  |  |
 
-</details>
-
-<details><summary><b>Metabase alert rule</b></summary>
+#### Metabase alert rule
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -284,9 +282,9 @@ The body is selected by the `type` discriminator:
 | `dataSourceIds` | array of string |  |  |
 | `dataSourceAlertName` | string |  |  |
 
-</details>
+#### Zabbix alert rule
 
-<details><summary><b>Zabbix alert rule</b> — Filter Zabbix webhooks by hosts, actions, and severities (0–5 as strings, or omit for all).</summary>
+*Filter Zabbix webhooks by hosts, actions, and severities (0–5 as strings, or omit for all).*
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -303,9 +301,9 @@ The body is selected by the `type` discriminator:
 | `actions` | array of string |  | Example: `["Action1"]` |
 | `severities` | array of string (0 \| 1 \| 2 \| 3 \| 4 \| 5) |  | Zabbix severity codes 0 (not classified) through 5 (disaster) Example: `["5"]` |
 
-</details>
+#### Elastic alert rule
 
-<details><summary><b>Elastic alert rule</b> — Document-count threshold on an Elastic data view.</summary>
+*Document-count threshold on an Elastic data view.*
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -325,9 +323,9 @@ The body is selected by the `type` discriminator:
 | `conditionType` | string (greaterOrEqual \| lessOrEqual) |  |  |
 | `countDocument` | integer |  | Document count threshold Example: `5` |
 
-</details>
+#### VictoriaLogs alert rule
 
-<details><summary><b>VictoriaLogs alert rule</b> — Log line count threshold on a VictoriaLogs data source.</summary>
+*Log line count threshold on a VictoriaLogs data source.*
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -344,8 +342,6 @@ The body is selected by the `type` discriminator:
 | `minutes` | integer |  | Example: `15` |
 | `conditionType` | string (greaterOrEqual \| lessOrEqual) |  |  |
 | `countDocument` | integer |  | Example: `5` |
-
-</details>
 
 **Responses:** `200` Created successfully · `422` Validation error
 
@@ -375,7 +371,7 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 
 **Request body** (`application/json`)
 
-<details><summary><b>Update API alert rule</b></summary>
+#### Update API alert rule
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -389,9 +385,7 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 | `enableAutoResolve` | boolean |  |  |
 | `autoResolveMinutes` | integer |  |  |
 
-</details>
-
-<details><summary><b>Update notification alert rule</b></summary>
+#### Update notification alert rule
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -403,47 +397,9 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 | `teamIds` | array of string |  |  |
 | `endpointIds` | array of string |  |  |
 
-</details>
+#### AlertRuleUpdatePrometheus
 
-<details><summary><b>AlertRuleUpdatePrometheus</b></summary>
-
-*Variant `queryType`: **Update Prometheus (dynamic)***
-
-| Field | Type | Required | Description |
-|---|---|---|---|
-| `name` | string |  |  |
-| `description` | string |  |  |
-| `showAcknowledgeBtn` | boolean |  |  |
-| `tags` | array of string |  |  |
-| `userIds` | array of string |  |  |
-| `teamIds` | array of string |  |  |
-| `endpointIds` | array of string |  |  |
-| `queryType` | string (dynamic) |  |  |
-| `dataSourceIds` | array of string |  |  |
-| `dataSourceAlertName` | string |  |  |
-| `extraField` | array of object |  |  |
-
-*Variant `queryType`: **Update Prometheus (text query)***
-
-| Field | Type | Required | Description |
-|---|---|---|---|
-| `name` | string |  |  |
-| `description` | string |  |  |
-| `showAcknowledgeBtn` | boolean |  |  |
-| `tags` | array of string |  |  |
-| `userIds` | array of string |  |  |
-| `teamIds` | array of string |  |  |
-| `endpointIds` | array of string |  |  |
-| `queryType` | string (textQuery) |  |  |
-| `queryText` | string |  |  |
-| `queryObject` | object |  |  |
-
-
-</details>
-
-<details><summary><b>AlertRuleUpdateGrafana</b></summary>
-
-*Variant `queryType`: **Update Grafana (dynamic)***
+**Variant `queryType`: Update Prometheus (dynamic)**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -459,7 +415,7 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 | `dataSourceAlertName` | string |  |  |
 | `extraField` | array of object |  |  |
 
-*Variant `queryType`: **Update Grafana (text query)***
+**Variant `queryType`: Update Prometheus (text query)**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -475,11 +431,9 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 | `queryObject` | object |  |  |
 
 
-</details>
+#### AlertRuleUpdateGrafana
 
-<details><summary><b>AlertRuleUpdatePmm</b></summary>
-
-*Variant `queryType`: **Update PMM (dynamic)***
+**Variant `queryType`: Update Grafana (dynamic)**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -495,7 +449,7 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 | `dataSourceAlertName` | string |  |  |
 | `extraField` | array of object |  |  |
 
-*Variant `queryType`: **Update PMM (text query)***
+**Variant `queryType`: Update Grafana (text query)**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -511,9 +465,41 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 | `queryObject` | object |  |  |
 
 
-</details>
+#### AlertRuleUpdatePmm
 
-<details><summary><b>Update Sentry alert rule</b></summary>
+**Variant `queryType`: Update PMM (dynamic)**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `name` | string |  |  |
+| `description` | string |  |  |
+| `showAcknowledgeBtn` | boolean |  |  |
+| `tags` | array of string |  |  |
+| `userIds` | array of string |  |  |
+| `teamIds` | array of string |  |  |
+| `endpointIds` | array of string |  |  |
+| `queryType` | string (dynamic) |  |  |
+| `dataSourceIds` | array of string |  |  |
+| `dataSourceAlertName` | string |  |  |
+| `extraField` | array of object |  |  |
+
+**Variant `queryType`: Update PMM (text query)**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `name` | string |  |  |
+| `description` | string |  |  |
+| `showAcknowledgeBtn` | boolean |  |  |
+| `tags` | array of string |  |  |
+| `userIds` | array of string |  |  |
+| `teamIds` | array of string |  |  |
+| `endpointIds` | array of string |  |  |
+| `queryType` | string (textQuery) |  |  |
+| `queryText` | string |  |  |
+| `queryObject` | object |  |  |
+
+
+#### Update Sentry alert rule
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -527,9 +513,7 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 | `dataSourceIds` | array of string |  |  |
 | `dataSourceAlertName` | string |  |  |
 
-</details>
-
-<details><summary><b>Update Splunk alert rule</b></summary>
+#### Update Splunk alert rule
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -543,9 +527,7 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 | `dataSourceIds` | array of string |  |  |
 | `dataSourceAlertName` | string |  |  |
 
-</details>
-
-<details><summary><b>Update Metabase alert rule</b></summary>
+#### Update Metabase alert rule
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -559,9 +541,7 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 | `dataSourceIds` | array of string |  |  |
 | `dataSourceAlertName` | string |  |  |
 
-</details>
-
-<details><summary><b>Update Zabbix alert rule</b></summary>
+#### Update Zabbix alert rule
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -577,9 +557,7 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 | `actions` | array of string |  |  |
 | `severities` | array of string (0 \| 1 \| 2 \| 3 \| 4 \| 5) |  |  |
 
-</details>
-
-<details><summary><b>Update Elastic alert rule</b></summary>
+#### Update Elastic alert rule
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -598,9 +576,7 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 | `conditionType` | string (greaterOrEqual \| lessOrEqual) |  |  |
 | `countDocument` | integer |  |  |
 
-</details>
-
-<details><summary><b>Update VictoriaLogs alert rule</b></summary>
+#### Update VictoriaLogs alert rule
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -616,8 +592,6 @@ Updates an alert rule. Send the payload for the rule's existing type (type canno
 | `minutes` | integer |  |  |
 | `conditionType` | string (greaterOrEqual \| lessOrEqual) |  |  |
 | `countDocument` | integer |  |  |
-
-</details>
 
 **Responses:** `200` Updated successfully · `403` Forbidden · `404` Not Found
 

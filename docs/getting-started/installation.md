@@ -40,7 +40,7 @@ This starts the full stack:
 
 When all containers report healthy:
 
-1. Open **http://localhost:PORT** {/* TODO: real port */}
+1. Open `http://localhost:PORT` {/* TODO: real port */}
 2. Log in with the default credentials: `USERNAME` / `PASSWORD` {/* TODO: real defaults */}
 3. **Change the default password immediately.**
 

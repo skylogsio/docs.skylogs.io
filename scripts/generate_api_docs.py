@@ -115,22 +115,21 @@ def request_body_md(op, out):
             for variant in schema['oneOf']:
                 v = deref(variant)
                 title = v.get('title') or v.get('x-name', 'variant')
-                out.append(f"<details><summary><b>{title}</b>" +
-                           (f" — {esc(v.get('description',''))}" if v.get('description') else "") +
-                           "</summary>")
+                out.append(f"#### {title}")
                 out.append("")
+                if v.get('description'):
+                    out.append(f"*{esc(v['description'])}*")
+                    out.append("")
                 if 'oneOf' in v:  # nested discriminator (queryType)
                     ndisc = v.get('discriminator', {}).get('propertyName', '')
                     for nv in v['oneOf']:
                         nvr = deref(nv)
-                        out.append(f"*Variant `{ndisc}`: **{nvr.get('title') or nvr.get('x-name','')}***")
+                        out.append(f"**Variant `{ndisc}`: {nvr.get('title') or nvr.get('x-name','')}**")
                         out.append("")
                         props_table(nvr, out)
                         out.append("")
                 else:
                     props_table(v, out)
-                out.append("")
-                out.append("</details>")
                 out.append("")
         else:
             props_table(schema, out)
