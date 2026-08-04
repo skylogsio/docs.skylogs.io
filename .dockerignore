@@ -1,9 +1,7 @@
 node_modules
-.git
-.gitignore
-.docusaurus
 build
-.cache-loader
-.DS_Store
-.env
-.env.local
+.docusaurus
+.git
+.github
+*.zip
+INTEGRATION_NOTES.md

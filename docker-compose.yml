@@ -1,68 +1,49 @@
-
 services:
-  docusaurus:
-    build: .
+  # ---------- Production: build the static site and serve it via nginx ----------
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: skylogsio/docs:latest
+    container_name: skylogs-docs
     ports:
-      - "9000:80"
-    environment:
-      API_KEY: xyz
+      - "8080:80"          # change the left side to whatever host port you want
+    restart: unless-stopped
 
+  # ---------- Development: live-reload authoring mode ----------
+  # Start with:  docker compose --profile dev up docs-dev
+  # Edit files on the host; the site hot-reloads at http://localhost:3000
+  # Draft pages (draft: true) ARE visible in this mode, unlike production.
+  docs-dev:
+    profiles: ["dev"]
+    image: node:20-alpine
+    container_name: skylogs-docs-dev
+    working_dir: /app
+    volumes:
+      - .:/app
+      - docs_node_modules:/app/node_modules   # keep node_modules in a volume, not the host
+    command: sh -c "if [ -f package-lock.json ]; then npm ci; else npm install; fi && npm run start -- --host 0.0.0.0"
+    ports:
+      - "3000:80"   # docusaurus start runs on port 80 (see package.json)
+    environment:
+      - CHOKIDAR_USEPOLLING=true   # reliable file-watching across Docker filesystems
+
+  # ---------- Optional: Typesense search backend ----------
+  # The site's search UI (docusaurus-theme-search-typesense) expects a Typesense
+  # server at host "typesense:8108". Start with:
+  #   docker compose --profile search up -d typesense
+  # You must also run the typesense-docsearch-scraper against the built site
+  # to populate the "docusaurus-2" collection, and use a real API key.
   typesense:
-    image: typesense/typesense:30.1
-    container_name: typesense
+    profiles: ["search"]
+    image: typesense/typesense:27.1
+    container_name: skylogs-docs-typesense
+    command: --data-dir /data --api-key=xyz --enable-cors
+    volumes:
+      - typesense_data:/data
     ports:
       - "8108:8108"
-    volumes:
-      - ./typesense-data:/data
-    command:
-      - --data-dir
-      - /data
-      - --api-key
-      - xyz
-      - --enable-cors
-    environment:
-      - TYPESENSE_API_KEY=xyz
-    # Optional: healthcheck
-#    healthcheck:
-#      test: ["CMD", "curl", "-f", "http://localhost:8108/health"]
-#      interval: 30s
-#      timeout: 10s
-#      retries: 3
-
-  docsearch-scraper:
-    image: typesense/docsearch-scraper
-    container_name: docsearch-scraper
-    environment:
-      CONFIG: >
-        {
-          "index_name": "docusaurus-2",
-          "typesenseCollectionName": "docusaurus-2",
-          "start_urls": ["http://docusaurus"],
-          "sitemap_urls": ["http://docusaurus/sitemap.xml"],
-          "js_render": true,
-          "selectors": {
-            "default": {
-              "lvl0": {
-                "selector": "header h1",
-                "defaultValue": "Documentation"
-              },
-              "lvl1": "article h1",
-              "lvl2": "article h2",
-              "text": "article p, article li"
-            }
-          }
-        }
-
-      TYPESENSE_API_KEY: xyz
-      TYPESENSE_HOST: typesense
-      TYPESENSE_PORT: "8108"
-      TYPESENSE_PROTOCOL: http
-    depends_on:
-      - typesense
-#        condition: service_healthy
-    # Use extra_hosts to simulate host.docker.internal on Linux
-#    extra_hosts:
-#      - "host.docker.internal:host-gateway"
 
 volumes:
-  typesense-data:
+  docs_node_modules:
+  typesense_data:

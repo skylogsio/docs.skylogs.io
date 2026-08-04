@@ -1,3 +1,8 @@
+---
+title: Overview
+sidebar_position: 1
+---
+
 # Overview 
 
 Welcome to **SkyLogs**, a modern alerting and incident management platform designed to help your team detect, respond, and automate incidents faster.

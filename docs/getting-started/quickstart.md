@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
-title: Quick Start 
+title: Quick Start
+slug: /quick-start
 description: Installing Skylogs using Docker and Docker Compose.
 ---
 
@@ -34,14 +35,14 @@ Make sure you have:
 
 ---
 
-# Step 1 — Clone the Repository
+## Step 1 — Clone the repository
 
 ```bash
 git clone https://github.com/skylogsio/skylogs.git
 cd skylogs
 ```
 
-# Step 2: Start Docker Containers
+## Step 2 — Start Docker containers
 
 #### Using Stable Release (Recommended)
 
@@ -70,7 +71,7 @@ The latest version may contain experimental features and is recommended for deve
 :::
 
 
-### Step 3: Access Skylogs
+## Step 3 — Access Skylogs
 
 Open your web browser and navigate to:
 
@@ -87,11 +88,9 @@ Login with the default credentials:
 For security reasons, please change the default password immediately after your first login.
 :::
 
-## Next Steps
+## Step 4 — Fire your first alert
 
-# After Successful Installation
-
-## Create a Discord Endpoint
+### Create a Discord endpoint
 1. Go to the **Endpoints** tab and click **Create**.  
 2. Select **Discord** as the endpoint type.  
 3. Paste your **Discord webhook URL** into the value field.  
@@ -105,7 +104,7 @@ Your endpoint is now ready to be used for alert notifications.
 
 ---
 
-## Create an API Alert Rule
+### Create an API alert rule
 1. Go to the **Alert Rules** tab and click **Create**.  
 2. From the left panel, select **API**.  
 3. Enter a **name** for the alert.  
@@ -120,7 +119,7 @@ You now have an API-based alert that can be **fired** and **resolved** using the
 
 ---
 
-## Test the Alert
+### Test the alert
 1. From the **Alert Rules** page, click on your alert to open the **Alert View** page.  
 2. Copy the **Fire** curl command and run it in your terminal.  
    - The alert should move to the **Firing** state.  
@@ -149,6 +148,13 @@ curl -X POST http://localhost:8080/api/v1/stop-alert -H 'Content-Type: applicati
 ---
 
 Your alerting workflow is now fully functional.
+
+## Next steps
+
+- Connect a real monitoring source — see [Integrations](/integrations)
+- Going to production? HA clusters, multi-zone federation, Kubernetes, and hardened
+  Docker Compose live in the [Deployment](/deployment) section
+- Set up teams, schedules, and escalation policies — see the [User guide](/user-guide)
 
 
 

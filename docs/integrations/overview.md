@@ -1,75 +1,45 @@
-# SkyLogs Datasources
-
-SkyLogs integrates with a wide range of monitoring, logging, and observability platforms.  
-A **datasource** is an external system that SkyLogs can pull alerts, metrics, logs, or events from.  
-Datasources allow SkyLogs to centralize alert management, correlate incidents, and build a unified observability view.
-
-This document describes:
-
-- What datasources are
-- Supported datasource types
-- Common configuration fields
-- Type-specific examples
-- Validation rules
-- How SkyLogs uses datasources
-- Troubleshooting tips
-- datasource healthcheack 
-
+---
+id: integrations-overview
+title: Overview
+sidebar_position: 1
+slug: /integrations
 ---
 
-## What Is a Datasource?
+# Integrations overview
 
-A datasource in SkyLogs represents an external system such as Prometheus, Grafana, Elasticsearch, or Zabbix.  
-SkyLogs connects to these systems via their API endpoints to:
+Skylogs ingests alerts from your existing monitoring stack. Every integration feeds the same pipeline: **parsing → deduplication → correlation → routing → escalation → notification.**
 
-- Fetch alerts  
-- Query metrics or logs  
-- Enrich incidents with additional metadata  
-- Build status pages  
-- Correlate alerts across multiple systems  
+If your tool isn't listed, use the [generic webhook](/integrations/generic-webhook) or the [REST API](/api) — anything that can send an HTTP POST can page through Skylogs.
 
-Once added, a datasource can be shared across multiple teams, services, and environments.
+## How ingestion works
 
----
+Each integration you create in Skylogs gets a unique ingestion URL with an embedded token:
 
-## Supported Datasource Types
-
-SkyLogs currently supports the following datasources:
-
-| Type             | Description |
-|------------------|-------------|
-| **Prometheus**   | Native Prometheus API integration using `/api/v1`. |
-| **VictoriaMetrics** | Compatible with Prometheus endpoints. Works for VM single-node and cluster setups. |
-| **Grafana**      | Fetches alerts using Grafana Unified Alerting API. |
-| **Zabbix**       | Connects to Zabbix API to read hosts, triggers, and events. |
-| **Splunk**       | Queries Splunk via REST API or saved searches. |
-| **Elasticsearch** | Fetches data using Elasticsearch Query DSL. |
-| **PMM (Percona Monitoring & Management)** | Uses PMM API for MySQL/MongoDB metric and alert integration. |
-
----
-
-## Common Fields
-
-All datasources share a core set of configuration options:
-
-```yaml
-name: string          # Human-friendly name of the datasource
-type: string          # One of: prometheus, victoria, grafana, zabbix, splunk, elasticsearch, pmm
-url: string           # Base URL of the datasource API
-enabled: bool         # If false, datasource will not be queried
-timeout: int          # HTTP request timeout in seconds
-auth:
-  type: string        # none | basic | token | bearer | api_key
-  username: string    # Optional (basic auth)
-  password: string    # Optional (basic auth)
-  token: string       # Optional (token, bearer, api_key)
-options:              # Optional type-specific fields
-  key: value
+```
+https://skylogs.example.com/api/v1/ingest/<integration-type>/<token>
 ```
 
----
+{/* TODO: confirm real URL scheme */}
 
-## datasource health check
-Datasources is the source of all alerts so if skylogs fail to fethch alerts we are blinded to a part of important of system so it is crutial to maintain connectivity to datasources and got alerts. 
+Point your monitoring tool at that URL. Skylogs parses the tool's native payload format — you do not need to reshape the data.
 
-![Skylogs datasource](../images/skylogs-datasource.png)
+## Available integrations
+
+| Source | Guide |
+|---|---|
+| Prometheus / Alertmanager / vmalert | [Prometheus & Alertmanager](/integrations/prometheus-alertmanager) |
+| Grafana Alerting | [Grafana](/integrations/grafana) |
+| Zabbix | [Zabbix](/integrations/zabbix) |
+| Datadog | [Datadog](/integrations/datadog) |
+| Splunk | [Splunk](/integrations/splunk) |
+| Elastic / ELK | [Elastic](/integrations/elastic) |
+| PMM (Percona) | [PMM](/integrations/pmm) |
+| Anything else | [Generic webhook](/integrations/generic-webhook) |
+
+## Outbound notification channels
+
+Skylogs delivers notifications through **phone call, SMS, email, Slack, Microsoft Teams, and Telegram**. Channel setup is in the [Admin guide](/admin-guide); personal endpoint preferences are in the [User guide](/user-guide). Every endpoint can be **verified**, so a critical page is never sent to a dead channel.
+
+## Requesting an integration
+
+Open a [feature request](https://github.com/skylogsio/skylogs/issues) with the tool name and a sample of its webhook payload. Integrations are one of the easiest ways to [contribute](/contributing).

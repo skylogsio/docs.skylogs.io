@@ -11,7 +11,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Skylogs",
-  tagline: "Dinosaurs are cool",
+  tagline: "Open-source incident response that survives the incident",
   favicon: "img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -122,7 +122,7 @@ const config = {
         items: [
           {
             type: "docSidebar",
-            sidebarId: "tutorialSidebar",
+            sidebarId: "docsSidebar",
             position: "left",
             label: "Docs",
           },
@@ -142,7 +142,7 @@ const config = {
             items: [
               {
                 label: "Intro",
-                to: "/docs/introduction",
+                to: "/",
               },
             ],
           },
@@ -177,7 +177,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Skylogs. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
