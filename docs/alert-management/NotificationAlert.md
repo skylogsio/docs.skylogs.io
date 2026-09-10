@@ -1,3 +1,10 @@
+---
+id: notification-alert
+title: Notification Alert Rule
+sidebar_position: 4
+slug: /alert-management/notification-alert
+---
+
 # Notification Alert Rule
 
 ## Overview

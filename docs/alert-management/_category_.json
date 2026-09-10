@@ -1,5 +1,6 @@
 {
   "label": "Alert Management",
+  "position": 5.1,
   "collapsible": true,
   "link": {
     "type": "generated-index"

@@ -1,3 +1,10 @@
+---
+id: managing-alerts
+title: Creating & Managing Alerts
+sidebar_position: 2
+slug: /alert-management/managing-alerts
+---
+
 # Alert Management in SkyLogs
 
 SkyLogs provides a flexible and powerful alert management system designed to work seamlessly with multiple datasources such as Prometheus, VictoriaMetrics, Elasticsearch, and others.  
@@ -11,7 +18,7 @@ To create a new alert in SkyLogs:
 
 1. **Select the Alert Type**  
    Choose the monitoring system you want to create an alert for (e.g., *Prometheus*).  
-   Each alert type corresponds to a specific datasource.
+   Each alert type corresponds to a specific datasource — see the type-specific walkthroughs: [Prometheus](/alert-management/create-prometheus-alert), [Grafana](/alert-management/create-grafana-alert), [PMM](/alert-management/create-pmm-alert), [Elasticsearch](/alert-management/create-elasticsearch-alert), [API](/alert-management/api-alert), [Notification](/alert-management/notification-alert), and [Health Check](/alert-management/create-health-check-alert).
 
 2. **Choose a Datasource**  
    After selecting the alert type, choose the corresponding datasource (e.g., your Prometheus server).
@@ -32,7 +39,7 @@ To create a new alert in SkyLogs:
 
 Once submitted, the alert will appear in the alert list with all its configuration.
 
-![create alert](../../images/skylogs-create-alert.png)
+![create alert](../images/skylogs-create-alert.png)
 
 ---
 
@@ -54,7 +61,7 @@ You can:
 The Alert View Page is designed to give you full control and visibility over the alert.
 
 
-![alert view](../../images/skylogs-alert-view.png)
+![alert view](../images/skylogs-alert-view.png)
 ---
 
 ## Filtering and Group Actions
@@ -89,11 +96,11 @@ After filtering, you can apply bulk actions to multiple alerts at once:
 These tools significantly streamline mass alert management, especially in large-scale deployments.
 
 
-![alert filtering](../../images/skylogs-alert-filtering.png)
+![alert filtering](../images/skylogs-alert-filtering.png)
 
 
 
-![groupAction](../../images/groupAction.png)
+![groupAction](../images/groupAction.png)
 ---
 
 ## Pinning Alerts

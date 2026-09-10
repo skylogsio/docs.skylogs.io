@@ -1,3 +1,10 @@
+---
+id: api-alert
+title: API Alert
+sidebar_position: 3
+slug: /alert-management/api-alert
+---
+
 # Api Alert
 
 Welcome to **Skylogs** – your all-in-one alert management platform designed for seamless integration with any observability stack. Whether you're managing cloud infrastructure or application monitoring, Skylogs empowers both **shared responsibility** and **personal customization**.

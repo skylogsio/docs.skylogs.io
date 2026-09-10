@@ -24,7 +24,7 @@ This path focuses on the **fastest way to receive your first alert notification*
 * Receive your first notification
 
 
-[Go to Quick Start →](./quickstart)
+[Go to Quick Start →](/quick-start)
 
 ---
 
@@ -44,7 +44,7 @@ This path demonstrates SkyLogs’ full power with multiple datasources, realisti
 
 > Ideal for DevOps teams, SREs, and managers who want to explore SkyLogs in a real production-like environment.
 
-[Go to Full Stack Demo →](./full-stack-demo)
+[Go to Full Stack Demo →](/demo)
 
 ---
 

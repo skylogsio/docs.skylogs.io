@@ -1,9 +1,8 @@
-# Endpoint Overview
-Great — I have everything I need.
-Below is a **clean, professional, README-style Markdown documentation** for the **Endpoints** feature in Skylogs.
-
-You can paste this directly into your repo under `/docs/endpoints.md` or anywhere you prefer.
-
+---
+id: endpoints
+title: Endpoints
+sidebar_position: 20
+slug: /integrations/endpoints
 ---
 
 # 📡 Skylogs Endpoints

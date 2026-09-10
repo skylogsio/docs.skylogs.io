@@ -1,3 +1,10 @@
+---
+id: overview
+title: Alert Management Overview
+sidebar_position: 1
+slug: /alert-management/overview
+---
+
 # Alert Management Overview
 
 SkyLogs provides a centralized **alert management system** that collects, processes, and routes alerts from multiple monitoring systems.  
@@ -65,9 +72,14 @@ Each alert passes through several states:
 
 After understanding the alert management overview, explore the following topics:
 
-- [Alert Flow](alert-flow.md) – How alerts travel from datasource to endpoints.  
-- [Routing & Filtering](routing.md) – Configuring notification rules.  
-- [Troubleshooting Alerts](troubleshooting.md) – How to debug alert issues.
+- [Creating & Managing Alerts](/alert-management/managing-alerts) – How to create, view, filter, and pin alerts.
+- [API Alert](/alert-management/api-alert) – Firing and resolving alerts via the REST API.
+- [Notification Alert Rule](/alert-management/notification-alert) – Stateless, one-shot notification alerts.
+- [Create a Prometheus Alert](/alert-management/create-prometheus-alert) – Match alerts from a connected Prometheus/VictoriaMetrics source.
+- [Create a Grafana Alert](/alert-management/create-grafana-alert) – Match alerts from a connected Grafana instance.
+- [Create a PMM Alert](/alert-management/create-pmm-alert) – Match alerts from a connected Percona PMM instance.
+- [Create an Elasticsearch Alert](/alert-management/create-elasticsearch-alert) – Document-count threshold checks on an Elastic data view.
+- [Create a Health Check Alert](/alert-management/create-health-check-alert) – Dead-man's-switch / heartbeat monitoring.
 
 ---
 

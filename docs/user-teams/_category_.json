@@ -1,5 +1,6 @@
 {
-  "label": "Users and  Teams",
+  "label": "Users and Teams",
+  "position": 5.2,
   "collapsible": true,
   "link": {
     "type": "generated-index"

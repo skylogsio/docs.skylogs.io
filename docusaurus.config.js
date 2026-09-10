@@ -117,7 +117,7 @@ const config = {
         // title: 'Skylogs',
         logo: {
           alt: "skylogs.io logo",
-          src: "img/logo.svg",
+          src: "img/skylogs-logo.jpg",
         },
         items: [
           {

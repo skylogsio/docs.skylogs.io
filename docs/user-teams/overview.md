@@ -1,3 +1,10 @@
+---
+id: overview
+title: Users & Teams
+sidebar_position: 1
+slug: /user-teams
+---
+
 # 👤 Users & Teams
 
 Skylogs uses a simple, role-based system to manage user permissions and access to alert rules, endpoints, and teams.
