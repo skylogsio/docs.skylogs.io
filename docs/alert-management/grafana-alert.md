@@ -1,8 +1,8 @@
 ---
-id: create-grafana-alert
+id: grafana-alert
 title: Create a Grafana Alert
 sidebar_position: 6
-slug: /alert-management/create-grafana-alert
+slug: /alert-management/grafana-alert
 ---
 
 # Create a Grafana Alert
@@ -41,6 +41,8 @@ Matches using a raw query evaluated by Skylogs' own checker instead of relying o
 |---|---|---|
 | `queryText` | string | Query expression string |
 | `queryObject` | object | Structured query payload used by the checker |
+
+![create grafana alert](../images/grafana-create-alert.png)
 
 ## Example request
 

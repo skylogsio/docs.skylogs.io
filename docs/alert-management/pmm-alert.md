@@ -1,11 +1,15 @@
 ---
-id: create-pmm-alert
+id: pmm-alert
 title: Create a PMM Alert
 sidebar_position: 7
-slug: /alert-management/create-pmm-alert
+slug: /alert-management/pmm-alert
 ---
 
 # Create a PMM Alert
+
+## Overview
+
+As with Grafana alerts, you can connect PMM alerts to Skylogs and manage them in a centralized panel.
 
 A **PMM alert rule** matches alerts coming from a connected Percona Monitoring and Management (PMM) instance. PMM's alerting is Alertmanager-compatible and is ingested through the same receiver as [Prometheus & Alertmanager](/integrations/prometheus-alertmanager) — see [PMM integration](/integrations/pmm).
 
@@ -41,6 +45,8 @@ Matches using a raw query evaluated by Skylogs' own checker instead of relying o
 |---|---|---|
 | `queryText` | string | Query expression string |
 | `queryObject` | object | Structured query payload used by the checker |
+
+![create pmm alert](../images/pmm-create-alert.png)
 
 ## Example request
 

@@ -1,8 +1,8 @@
 ---
-id: create-health-check-alert
+id: health-check-alert
 title: Create a Health Check Alert
 sidebar_position: 9
-slug: /alert-management/create-health-check-alert
+slug: /alert-management/health-check-alert
 ---
 
 # Create a Health Check Alert

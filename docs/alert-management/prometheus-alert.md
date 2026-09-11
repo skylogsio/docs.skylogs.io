@@ -1,11 +1,15 @@
 ---
-id: create-prometheus-alert
+id: prometheus-alert
 title: Create a Prometheus Alert
 sidebar_position: 5
-slug: /alert-management/create-prometheus-alert
+slug: /alert-management/prometheus-alert
 ---
 
 # Create a Prometheus Alert
+
+## Overview
+
+The **Prometheus Alert** is a type of alert rule in Skylogs that connects to a Prometheus datasource or Alertmanager and retrieves the latest state of all alerts and their labels. You have strong label filtering to tune the rule to a specific alert and avoid generating noisy alerts.
 
 A **Prometheus alert rule** matches alerts coming from a connected Prometheus / VictoriaMetrics data source. Alerts are ingested through the [Prometheus & Alertmanager integration](/integrations/prometheus-alertmanager); this rule tells Skylogs which of those incoming alerts belong to it.
 
@@ -41,6 +45,8 @@ Matches using a raw PromQL expression, evaluated by Skylogs' own checker instead
 |---|---|---|
 | `queryText` | string | PromQL expression string |
 | `queryObject` | object | Structured query payload used by the checker |
+
+![create prometheus alert](../images/prometheus-create-alert.png)
 
 ## Example request
 

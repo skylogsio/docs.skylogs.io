@@ -18,7 +18,7 @@ To create a new alert in SkyLogs:
 
 1. **Select the Alert Type**  
    Choose the monitoring system you want to create an alert for (e.g., *Prometheus*).  
-   Each alert type corresponds to a specific datasource — see the type-specific walkthroughs: [Prometheus](/alert-management/create-prometheus-alert), [Grafana](/alert-management/create-grafana-alert), [PMM](/alert-management/create-pmm-alert), [Elasticsearch](/alert-management/create-elasticsearch-alert), [API](/alert-management/api-alert), [Notification](/alert-management/notification-alert), and [Health Check](/alert-management/create-health-check-alert).
+   Each alert type corresponds to a specific datasource — see the type-specific walkthroughs: [Prometheus](/alert-management/prometheus-alert), [Grafana](/alert-management/grafana-alert), [PMM](/alert-management/pmm-alert), [Elasticsearch](/alert-management/elasticsearch-alert), [API](/alert-management/api-alert), [Notification](/alert-management/notification-alert), and [Health Check](/alert-management/health-check-alert).
 
 2. **Choose a Datasource**  
    After selecting the alert type, choose the corresponding datasource (e.g., your Prometheus server).
@@ -122,9 +122,7 @@ Pinned alerts remain visible regardless of sorting or filtering, ensuring teams 
 
 ---
 
-## Summary
+## Alerts Tag
 
-SkyLogs offers a comprehensive and user-friendly system for creating, managing, and organizing alerts.  
-With features like detailed configuration views, filtering, group actions, and alert pinning, teams can efficiently manage even the largest alert volumes across multiple datasources.
-
+Skylogs uses tags for managing alerts. It's best practice for every alert you create to have a tag — it makes management significantly easier. Tags also enable group actions such as silencing, changing ownership, and adding endpoints in bulk.
 

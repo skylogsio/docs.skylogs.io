@@ -75,11 +75,11 @@ After understanding the alert management overview, explore the following topics:
 - [Creating & Managing Alerts](/alert-management/managing-alerts) – How to create, view, filter, and pin alerts.
 - [API Alert](/alert-management/api-alert) – Firing and resolving alerts via the REST API.
 - [Notification Alert Rule](/alert-management/notification-alert) – Stateless, one-shot notification alerts.
-- [Create a Prometheus Alert](/alert-management/create-prometheus-alert) – Match alerts from a connected Prometheus/VictoriaMetrics source.
-- [Create a Grafana Alert](/alert-management/create-grafana-alert) – Match alerts from a connected Grafana instance.
-- [Create a PMM Alert](/alert-management/create-pmm-alert) – Match alerts from a connected Percona PMM instance.
-- [Create an Elasticsearch Alert](/alert-management/create-elasticsearch-alert) – Document-count threshold checks on an Elastic data view.
-- [Create a Health Check Alert](/alert-management/create-health-check-alert) – Dead-man's-switch / heartbeat monitoring.
+- [Create a Prometheus Alert](/alert-management/prometheus-alert) – Match alerts from a connected Prometheus/VictoriaMetrics source.
+- [Create a Grafana Alert](/alert-management/grafana-alert) – Match alerts from a connected Grafana instance.
+- [Create a PMM Alert](/alert-management/pmm-alert) – Match alerts from a connected Percona PMM instance.
+- [Create an Elasticsearch Alert](/alert-management/elasticsearch-alert) – Document-count threshold checks on an Elastic data view.
+- [Create a Health Check Alert](/alert-management/health-check-alert) – Dead-man's-switch / heartbeat monitoring.
 
 ---
 

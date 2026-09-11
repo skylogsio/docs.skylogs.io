@@ -1,8 +1,8 @@
 ---
-id: create-elasticsearch-alert
+id: elasticsearch-alert
 title: Create an Elasticsearch Alert
 sidebar_position: 8
-slug: /alert-management/create-elasticsearch-alert
+slug: /alert-management/elasticsearch-alert
 ---
 
 # Create an Elasticsearch Alert
@@ -33,6 +33,8 @@ An **Elastic alert rule** fires a document-count threshold check on an Elastic/E
 | `minutes` | integer | Look-back window in minutes, e.g. `15` |
 | `conditionType` | string (`greaterOrEqual` \| `lessOrEqual`) | How `countDocument` is compared against the matched document count |
 | `countDocument` | integer | Document count threshold, e.g. `5` |
+
+![create elasticsearch alert](../images/elasticsearch-create-alert.png)
 
 ## Example request
 

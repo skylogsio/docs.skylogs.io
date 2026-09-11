@@ -5,13 +5,13 @@ sidebar_position: 3
 slug: /alert-management/api-alert
 ---
 
-# Api Alert
+# API Alert
 
-Welcome to **Skylogs** – your all-in-one alert management platform designed for seamless integration with any observability stack. Whether you're managing cloud infrastructure or application monitoring, Skylogs empowers both **shared responsibility** and **personal customization**.
+## Overview
 
-## 🚀 Getting Started
+The **API Alert** is a type of alert rule in Skylogs that maintains a state of firing or resolved for a specific name and instance. You can use this type of alert to directly fire and resolve an alert from your codebase. It's more common to set up alerting in front of your monitoring stack and use the API Alert only in exceptional cases.
 
-Skylogs offers a powerful **REST API** to manage alerts across your stack. You’ll need:
+You'll need:
 
 * An API token (issued when creating alert rules)
 * Your alert rules set up in the dashboard
@@ -22,6 +22,8 @@ Skylogs offers a powerful **REST API** to manage alerts across your stack. You�
 ## 🔧 Creating an API Alert Rule
 
 To begin, create an **Alert Rule** via the Skylogs web dashboard. Once created, you'll receive an **API token** which authorizes alert API usage.
+
+![create api alert](../images/api-create-alert.png)
 
 ---
 
