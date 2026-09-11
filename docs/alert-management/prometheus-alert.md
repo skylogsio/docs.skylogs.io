@@ -1,11 +1,11 @@
 ---
 id: prometheus-alert
-title: Create a Prometheus Alert
+title: Prometheus Alert
 sidebar_position: 5
 slug: /alert-management/prometheus-alert
 ---
 
-# Create a Prometheus Alert
+# Prometheus Alert
 
 ## Overview
 

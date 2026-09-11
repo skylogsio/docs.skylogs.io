@@ -1,11 +1,11 @@
 ---
 id: elasticsearch-alert
-title: Create an Elasticsearch Alert
+title: Elasticsearch Alert
 sidebar_position: 8
 slug: /alert-management/elasticsearch-alert
 ---
 
-# Create an Elasticsearch Alert
+# Elasticsearch Alert
 
 An **Elastic alert rule** fires a document-count threshold check on an Elastic/ELK data view — for example, alerting when the number of 5xx responses or error log lines in a window exceeds a limit. It's a different shape from the Prometheus/Grafana/PMM rules: there's no dynamic/text-query choice, and no external ingestion webhook is required — Skylogs runs the check itself against the connected Elastic data source. (Kibana alerting can also push events in via a webhook connector, see [Elastic integration](/integrations/elastic), if you prefer Kibana to own the rule instead.)
 

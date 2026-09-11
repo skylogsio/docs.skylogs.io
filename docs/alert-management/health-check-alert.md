@@ -1,11 +1,11 @@
 ---
 id: health-check-alert
-title: Create a Health Check Alert
+title: Health Check Alert
 sidebar_position: 9
 slug: /alert-management/health-check-alert
 ---
 
-# Create a Health Check Alert
+# Health Check Alert
 
 A **health check alert** (also called a dead-man's-switch or heartbeat alert) flips the usual model: instead of firing when something goes wrong, it fires when an expected check-in *stops arriving*. It's the recommended way to monitor Skylogs itself — see [Admin guide → Monitoring Skylogs itself](/admin-guide#operational-maintenance) — and works just as well for any external job or service that should "phone home" on a schedule (cron jobs, backups, sync tasks).
 
@@ -20,7 +20,7 @@ There is no separate `healthcheck` rule type in the API — this pattern is buil
 
 ## Steps
 
-1. **Create an API alert rule** (see [Create an API alert](/alert-management/api-alert)) named something like `skylogs-heartbeat`.
+1. **Create an API alert rule** (see [API Alert](/alert-management/api-alert)) named something like `skylogs-heartbeat`.
 2. **Assign endpoints** that should page someone immediately — a missed heartbeat is always urgent.
 3. Configure your **external checker** (outside Skylogs) to:
    - Poll Skylogs' health endpoint on an interval, and

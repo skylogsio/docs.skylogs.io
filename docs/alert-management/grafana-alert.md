@@ -1,11 +1,11 @@
 ---
 id: grafana-alert
-title: Create a Grafana Alert
+title: Grafana Alert
 sidebar_position: 6
 slug: /alert-management/grafana-alert
 ---
 
-# Create a Grafana Alert
+# Grafana Alert
 
 A **Grafana alert rule** matches alerts coming from a connected Grafana instance. Alerts are ingested through the [Grafana integration](/integrations/grafana) (a webhook contact point); this rule tells Skylogs which of those incoming alerts belong to it.
 

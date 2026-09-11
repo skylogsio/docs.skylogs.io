@@ -1,11 +1,11 @@
 ---
 id: pmm-alert
-title: Create a PMM Alert
+title: PMM Alert
 sidebar_position: 7
 slug: /alert-management/pmm-alert
 ---
 
-# Create a PMM Alert
+# PMM Alert
 
 ## Overview
 
