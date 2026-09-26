@@ -81,3 +81,4 @@ Both are sent to `POST /api/v1/alert-rule` — see the full field reference in [
 
 - Resolved notifications from Grafana auto-resolve the corresponding Skylogs alert.
 - Use **Dynamic** when you want Grafana's own alert rules to remain the source of truth; use **Text query** when you want Skylogs to evaluate the condition itself.
+- Override the notification text per endpoint with a [custom notification template](/alert-management/notification-templates#grafana-and-pmm).

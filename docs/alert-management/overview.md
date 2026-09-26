@@ -74,12 +74,13 @@ After understanding the alert management overview, explore the following topics:
 
 - [Creating & Managing Alerts](/alert-management/managing-alerts) – How to create, view, filter, and pin alerts.
 - [API Alert](/alert-management/api-alert) – Firing and resolving alerts via the REST API.
-- [Notification Alert Rule](/alert-management/notification-alert) – Stateless, one-shot notification alerts.
+- [Notification Alert](/alert-management/notification-alert) – Send a one-shot notification from your codebase.
 - [Prometheus Alert](/alert-management/prometheus-alert) – Match alerts from a connected Prometheus/VictoriaMetrics source.
 - [Grafana Alert](/alert-management/grafana-alert) – Match alerts from a connected Grafana instance.
 - [PMM Alert](/alert-management/pmm-alert) – Match alerts from a connected Percona PMM instance.
 - [Elasticsearch Alert](/alert-management/elasticsearch-alert) – Document-count threshold checks on an Elastic data view.
 - [Health Check Alert](/alert-management/health-check-alert) – Dead-man's-switch / heartbeat monitoring.
+- [Custom Notification Templates](/alert-management/notification-templates) – Custom notification text for Prometheus, Grafana, PMM, API, and Notification alerts.
 
 ---
 

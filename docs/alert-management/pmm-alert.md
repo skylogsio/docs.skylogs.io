@@ -85,3 +85,4 @@ Both are sent to `POST /api/v1/alert-rule` — see the full field reference in [
 
 - Database-specific labels (service, node, cluster) are preserved as tags for routing — useful for giving each database team ownership of its own alerts.
 - Use **Dynamic** when you want PMM's own alert rules to remain the source of truth; use **Text query** when you want Skylogs to evaluate the condition itself.
+- PMM uses the same [custom notification template](/alert-management/notification-templates#grafana-and-pmm) syntax as Grafana.

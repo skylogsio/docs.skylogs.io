@@ -128,6 +128,10 @@ Let’s say you manage a Kubernetes cluster:
 
 ---
 
+## ✉️ Custom notification text
+
+Attach a template behavior rule to change the message sent to specific endpoints. API alerts use the placeholders in [Custom Notification Templates](/alert-management/notification-templates#api-and-notification).
+
 ## 📘 Best Practices
 
 * Use meaningful `instance` names to trace issues easily.

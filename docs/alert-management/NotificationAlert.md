@@ -1,26 +1,52 @@
 ---
 id: notification-alert
-title: Notification Alert Rule
+title: Notification Alert
 sidebar_position: 4
 slug: /alert-management/notification-alert
 ---
 
-# Notification Alert Rule
+# Notification Alert
 
 ## Overview
 
-The **Notification Alert** is a type of alert rule in Skylogs that sends a notification without maintaining a state. It is designed to immediately notify users or systems about specific events or conditions. This alert type is stateless, meaning it does not track whether the alert is active or resolved; it simply triggers a notification based on the provided configuration.
+The **Notification Alert** is a type of alert rule in Skylogs that delivers a message for a specific name and instance. You can use this type of alert to send a notification straight from your codebase. Each accepted call delivers the message to the rule's endpoints and finishes. Send again whenever you need another notification.
 
-## Request Body
+You'll need:
 
-The Notification Alert requires a JSON payload in the request body with the following fields:
+* An API token (issued when creating a Notification alert rule)
+* Your alert rule set up in the dashboard
+* Endpoint configurations (SMS, Email, Telegram, Teams, etc.)
 
-| Field         | Type   | Required | Description                                      |
-|---------------|--------|----------|--------------------------------------------------|
-| `instance`    | String | Yes      | The identifier for the instance triggering the alert. |
-| `description` | String | No       | An optional description providing additional context for the notification. |
+---
 
-### Example Request Body
+## 🔧 Creating a Notification Alert Rule
+
+To begin, create an **Alert Rule** with type **Notification** via the Skylogs web dashboard. Once created, you'll receive an **API token** which authorizes notification API usage.
+
+Copy that token from the alert rule (admin access required) and send it as a bearer token on every notification call. `POST /api/v1/notification-alert` accepts the token of a rule whose type is `notification`.
+
+Field details for creating the rule through the API are in [Alert rules → Notification alert rule](/api/alert-rules).
+
+---
+
+## 🔔 Sending a Notification
+
+Send a notification by posting to the following endpoint:
+
+```
+POST https://mydomain.com/api/v1/notification-alert
+```
+
+### Headers
+
+```
+Authorization: Bearer <API_TOKEN>
+Content-Type: application/json
+```
+
+`<API_TOKEN>` is the notification alert rule's token. A missing, unknown, or other-type token returns `401`.
+
+### Body
 
 ```json
 {
@@ -29,29 +55,25 @@ The Notification Alert requires a JSON payload in the request body with the foll
 }
 ```
 
-## Behavior
+* `instance` (required): Identifier for this notification.
+* `description` (optional): Any additional context included in the notification.
 
-- **Stateless**: The Notification Alert does not maintain a state (e.g., active or resolved). Each time the alert is triggered, it sends a notification based on the configured channels (e.g., Phone calls, SMS, Slack, Telegram, or Email).
-- **Immediate Notification**: Upon receiving a valid request, Skylogs processes the alert and sends notifications to the configured recipients or systems.
-- **Integration**: Works seamlessly with Skylogs' notification systems, including on-call rotations and automatic escalations if configured.
+> 📝 Calling again with the same `instance` updates the description and sends another notification. Omit `instance` and the request is rejected.
 
-## Use Case
+A successful call returns:
 
-The Notification Alert is ideal for scenarios where you need to be informed of an event without tracking its state, such as:
-- One-time alerts for system events (e.g., a user action or a log entry).
-- Informational notifications that do not require follow-up or resolution tracking.
+```json
+{
+  "status": true,
+  "message": "Done"
+}
+```
 
-## Configuration
-
-To configure a Notification Alert:
-1. Ensure your Skylogs instance is set up to handle notifications via your preferred channels (e.g., Slack, Email, etc.).
-2. Send a POST request to the Skylogs API with the required `instance` field and optional `description` field in the JSON payload.
-3. Verify that the notification is received through the configured channels.
-
-## Example API Request
+### Example
 
 ```bash
-curl -X POST https://api.skylogs.io/alerts/notification \
+curl -X POST https://mydomain.com/api/v1/notification-alert \
+  -H "Authorization: Bearer <API_TOKEN>" \
   -H "Content-Type: application/json" \
   -d '{
         "instance": "server-001",
@@ -59,8 +81,59 @@ curl -X POST https://api.skylogs.io/alerts/notification \
       }'
 ```
 
-## Notes
+---
 
-- Ensure the `instance` field is unique and descriptive to avoid confusion in notification logs.
-- The `description` field, while optional, is recommended to provide context for the notification.
-- Notification Alerts integrate with Skylogs' on-call rotation and escalation policies if configured.
+## 📡 Endpoints for Notifications
+
+You can set up various **notification endpoints** to be triggered when a notification is sent. Supported types:
+
+* 📩 Email
+* 📞 Call
+* 📬 SMS
+* 📢 Telegram
+* 👥 Microsoft Teams
+
+These can be configured in the dashboard and attached to specific alerts.
+
+---
+
+## 👥 Shared Access & Customization
+
+Skylogs encourages **collaboration**. You can:
+
+* Add other **users** to an alert.
+* Allow them to **attach their own endpoints** to receive notifications.
+* Maintain **custom responsibility** over alert behavior per user.
+
+> 🔐 Each user needs appropriate permissions to modify or observe alerts.
+
+---
+
+## 🧪 Example Use Case
+
+Let’s say a deploy pipeline should tell the team when a release finishes:
+
+1. Create a notification alert rule called `deploy-finished`.
+2. Send a notification when the deploy completes, with an `instance` such as the release id.
+3. Attach:
+
+    * Your email and SMS endpoints
+    * Your teammate adds a Telegram endpoint
+4. Call the same endpoint again for the next release. Each call sends a new notification.
+
+---
+
+## ✉️ Custom notification text
+
+Attach a template behavior rule to change the message sent to specific endpoints. Notification alerts use the same placeholders as API alerts. See [Custom Notification Templates](/alert-management/notification-templates#api-and-notification).
+
+## 📘 Best Practices
+
+* Use meaningful `instance` names so repeated calls for the same event stay recognizable.
+* Treat the API token as a secret. It authorizes sending notifications for this rule.
+* Share alerts responsibly using Skylogs’ user-level control.
+* `description` is optional and is the text most templates show beside the instance.
+
+---
+
+Built with ❤️ by the Skylogs Team
