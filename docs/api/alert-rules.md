@@ -1020,7 +1020,7 @@ Uses the same query filters as the alert rule list endpoint.
 
 ## AlertRule Behavior Rules
 
-A `template` behavior rule overrides notification text for selected endpoints. Placeholder syntax for Prometheus, Grafana, PMM, API, and Notification alerts is in [Custom Notification Templates](/alert-management/notification-templates).
+A `template` behavior rule overrides notification text for selected endpoints on Prometheus, Grafana, PMM, API, and Notification alert rules. Other alert types keep the default message. Placeholder syntax is in [Custom Notification Templates](/alert-management/notification-templates).
 
 | Endpoint | Summary |
 |---|---|

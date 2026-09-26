@@ -80,7 +80,7 @@ After understanding the alert management overview, explore the following topics:
 - [PMM Alert](/alert-management/pmm-alert) – Match alerts from a connected Percona PMM instance.
 - [Elasticsearch Alert](/alert-management/elasticsearch-alert) – Document-count threshold checks on an Elastic data view.
 - [Health Check Alert](/alert-management/health-check-alert) – Dead-man's-switch / heartbeat monitoring.
-- [Custom Notification Templates](/alert-management/notification-templates) – Placeholder syntax for template behavior rules.
+- [Custom Notification Templates](/alert-management/notification-templates) – Custom notification text for Prometheus, Grafana, PMM, API, and Notification alerts.
 
 ---
 

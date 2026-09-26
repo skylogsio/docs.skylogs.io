@@ -7,17 +7,19 @@ slug: /alert-management/notification-templates
 
 # Custom Notification Templates
 
-A **template behavior rule** replaces the default notification text for selected endpoints on one alert rule. Endpoints that are not listed on a template rule keep the default message for that alert type.
+A **template behavior rule** replaces the default notification text for selected endpoints on one alert rule. Endpoints that are not listed on a template rule keep the default message.
 
-Dedicated placeholders exist today for:
+Custom templates are available for these alert types:
 
 - [Prometheus](/alert-management/prometheus-alert)
-- [Grafana](/alert-management/grafana-alert) and [PMM](/alert-management/pmm-alert) (same syntax)
-- [API](/alert-management/api-alert) and [Notification](/alert-management/notification-alert) (same syntax)
+- [Grafana](/alert-management/grafana-alert) and [PMM](/alert-management/pmm-alert) (same placeholders)
+- [API](/alert-management/api-alert) and [Notification](/alert-management/notification-alert) (same placeholders)
 
-Sentry, Zabbix, Splunk, Elasticsearch, VictoriaLogs, Metabase, and Health Check do not have a dedicated template language yet. Those types will be added later. Until then, leave them on the default message.
+Every other alert type still sends Skylogs' default message. That includes Sentry, Zabbix, Splunk, Elasticsearch, VictoriaLogs, Metabase, and Health Check. Placeholder syntax for those types is not available yet, so leave them on the default message.
 
 ## How a template rule is applied
+
+The steps in this section apply to the alert types listed above. The sample uses Prometheus placeholders. Use the placeholders for your alert type from the sections below.
 
 Create a behavior rule with `type` set to `template`, a display `name`, the `endpointIds` that should use the custom text, and the `template` string.
 
